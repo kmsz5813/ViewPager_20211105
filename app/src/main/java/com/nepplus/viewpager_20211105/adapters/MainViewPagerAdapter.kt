@@ -8,19 +8,18 @@ import com.nepplus.viewpager_20211105.fragments.IntroduceFragment
 import com.nepplus.viewpager_20211105.fragments.NameFragment
 
 class MainViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
-    override fun getCount(): Int {
-        return 3
-    }
+
+//    함수의 결과가 한줄로 (계산식 포함) 끝나면, = 로 결과 대입 가능.
+    override fun getCount() = 3
+
 
     override fun getItem(position: Int): Fragment {
-        if (position == 0){
-            return HelloFragment()
+
+        return when(position){
+            0 -> HelloFragment()
+            1 -> NameFragment()
+            else -> IntroduceFragment()
         }
-        else if (position == 1){
-            return NameFragment()
-        }
-        else {
-            return IntroduceFragment()
-        }
+
     }
 }
